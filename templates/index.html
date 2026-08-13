@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Arcade - Hyper Casual Gaming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/games.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+</head>
+<body>
+    <!-- Main Menu Screen -->
+    <div id="menu-screen" class="screen active">
+        <div class="menu-background">
+            <div class="gradient-overlay"></div>
+            <canvas id="background-animation"></canvas>
+        </div>
+        
+        <div class="menu-container">
+            <div class="menu-header">
+                <h1 class="logo-title">GAME ARCADE</h1>
+                <p class="tagline">Prepare for addiction</p>
+            </div>
+            
+            <div class="games-grid">
+                <!-- Game 1: Portal Legion Rush -->
+                <div class="game-card" data-game="game1">
+                    <div class="card-preview">
+                        <canvas id="preview-game1" class="preview-canvas"></canvas>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Portal Legion Rush</h2>
+                        <p class="card-subtitle">Lead an unstoppable army through portals</p>
+                        <div class="card-stats">
+                            <span class="stat">👥 Army RTS</span>
+                            <span class="stat">🏃 Endless</span>
+                        </div>
+                    </div>
+                    <div class="card-shine"></div>
+                </div>
+                
+                <!-- Game 2: Snack Factory Frenzy -->
+                <div class="game-card" data-game="game2">
+                    <div class="card-preview">
+                        <canvas id="preview-game2" class="preview-canvas"></canvas>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Snack Factory Frenzy</h2>
+                        <p class="card-subtitle">Cook, stack, and sell for massive profits</p>
+                        <div class="card-stats">
+                            <span class="stat">🍔 Production</span>
+                            <span class="stat">⏱️ Daily</span>
+                        </div>
+                    </div>
+                    <div class="card-shine"></div>
+                </div>
+                
+                <!-- Game 3: Sling Bomb Blocks -->
+                <div class="game-card" data-game="game3">
+                    <div class="card-preview">
+                        <canvas id="preview-game3" class="preview-canvas"></canvas>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Sling Bomb Blocks</h2>
+                        <p class="card-subtitle">Physics destruction and tactical placement</p>
+                        <div class="card-stats">
+                            <span class="stat">💣 Physics</span>
+                            <span class="stat">🎯 Strategy</span>
+                        </div>
+                    </div>
+                    <div class="card-shine"></div>
+                </div>
+            </div>
+            
+            <div class="menu-footer">
+                <button id="records-btn" class="btn-records">
+                    🏆 HIGH SCORES
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Records Modal -->
+    <div id="records-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏆 High Scores</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="records-body">
+                <div class="loading">Loading records...</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <button id="menu-btn" class="btn-menu">← MENU</button>
+            <div class="game-title" id="game-title-display"></div>
+            <div class="game-info" id="game-info-display"></div>
+        </div>
+        <div id="game-container" class="game-container"></div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading game...</p>
+        </div>
+    </div>
+    
+    <!-- Core Scripts -->
+    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/storage.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui-manager.js') }}"></script>
+    
+    <!-- Game Scripts -->
+    <script src="{{ url_for('static', filename='js/game1-portal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/game2-snack.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/game3-sling.js') }}"></script>
+    
+    <!-- Preview Animations -->
+    <script src="{{ url_for('static', filename='js/menu-previews.js') }}"></script>
+    
+    <!-- Main App -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
