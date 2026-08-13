@@ -1,0 +1,434 @@
+/* ===================================
+   GAME ARCADE - MENU STYLING
+   Main menu, game cards, and navigation
+   =================================== */
+
+/* Menu Screen */
+#menu-screen {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+    z-index: 2;
+}
+
+/* Menu Container */
+.menu-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Menu Header */
+.menu-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: slideDown var(--transition-slow);
+}
+
+.logo-title {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
+    margin-bottom: 10px;
+    animation: neonGlow 3s ease-in-out infinite;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Games Grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+/* Game Card */
+.game-card {
+    position: relative;
+    background: linear-gradient(135deg, #1a1f3a 0%, #0f1225 100%);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+    box-shadow: var(--shadow-md);
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-neon);
+}
+
+.game-card.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.6), 0 0 60px rgba(0, 217, 255, 0.3);
+}
+
+/* Card Preview */
+.card-preview {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 217, 255, 0.1));
+    overflow: hidden;
+    border-bottom: 2px solid rgba(0, 217, 255, 0.1);
+}
+
+.preview-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Card Content */
+.card-content {
+    flex: 1;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--color-light);
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.card-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.card-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(255, 0, 110, 0.1);
+    border: 1px solid rgba(255, 0, 110, 0.3);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* Card Shine Effect */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    pointer-events: none;
+}
+
+.game-card:hover .card-shine {
+    animation: shine 600ms ease-in-out;
+}
+
+/* Menu Footer */
+.menu-footer {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-records {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    background: var(--gradient-primary);
+    color: var(--color-dark);
+    box-shadow: var(--shadow-md);
+    letter-spacing: 1px;
+    transition: all var(--transition-fast);
+}
+
+.btn-records:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 0, 110, 0.4);
+}
+
+.btn-records:active {
+    transform: scale(0.95);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn var(--transition-normal);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1f3a 0%, #0f1225 100%);
+    border: 2px solid var(--color-secondary);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: pop var(--transition-normal);
+}
+
+.modal-header {
+    padding: 25px;
+    border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-close {
+    font-size: 2rem;
+    background: none;
+    color: var(--color-secondary);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--color-primary);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+/* Records Display */
+.records-container {
+    display: grid;
+    gap: 20px;
+}
+
+.game-records {
+    background: rgba(0, 217, 255, 0.05);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.game-records h3 {
+    font-size: 1.3rem;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.record-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+    animation: slideUp var(--transition-normal);
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-rank {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    min-width: 30px;
+}
+
+.record-score {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.no-records {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-secondary);
+    opacity: 0.7;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.loading .loading-spinner {
+    width: 50px;
+    height: 50px;
+}
+
+.loading-text {
+    color: var(--color-secondary);
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .logo-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        padding: 30px 15px;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .logo-title {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .game-card {
+        min-height: 380px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 20px 10px;
+    }
+    
+    .logo-title {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .btn-records {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .game-card {
+        min-height: 320px;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .card-subtitle {
+        font-size: 0.85rem;
+    }
+}
